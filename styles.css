@@ -1,0 +1,180 @@
+/*
+  Base Styles, Variables, and Color Grading
+  Palette: Soft Navy, Cream/Off-White, Elegant Gold/Saffron
+*/
+:root {
+    --color-background-primary: #F8F8F8; /* Light Cream/Off-White */
+    --color-background-secondary: #FFFFFF; /* Pure White for contrast/cards */
+    --color-text-dark: #2C3E50; /* Soft Navy Blue (Classic/Friendly) */
+    --color-accent-gold: #FFC300; /* Elegant Gold/Saffron for highlights */
+    --color-accent-hover: #E8B000;
+    --color-border: #E0E0E0; /* Light Gray for clean separation */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+    --max-width: 1200px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background-primary);
+    color: var(--color-text-dark);
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section { padding: 4rem 0; border-bottom: 1px solid var(--color-border); }
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* --- 1. Header and Navigation --- */
+.header {
+    position: sticky; top: 0; z-index: 50;
+    background-color: var(--color-background-secondary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.nav-container {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 5rem;
+}
+.logo {
+    font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700;
+    color: var(--color-text-dark);
+}
+.desktop-menu { display: none; align-items: center; gap: 1.5rem; }
+.nav-link { font-weight: 500; padding: 0.5rem 0; transition: color 200ms; border-bottom: 2px solid transparent;}
+.nav-link:hover { color: var(--color-accent-gold); border-color: var(--color-accent-gold); }
+.menu-button { background: none; border: none; cursor: pointer; color: var(--color-text-dark); }
+.icon { height: 1.5rem; width: 1.5rem; }
+
+
+/* --- 2. Hero Section --- */
+.hero-section {
+    background-color: var(--color-background-secondary);
+    padding: 5rem 0; border-bottom: 1px solid var(--color-border);
+}
+.hero-content {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 3rem;
+}
+.hero-title {
+    font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1rem;
+}
+.highlight-name { color: var(--color-accent-gold); border-bottom: 3px solid var(--color-accent-gold); padding-bottom: 0.1rem; }
+.hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; }
+.cta-button {
+    display: inline-block; background-color: var(--color-accent-gold); color: var(--color-text-dark);
+    padding: 0.75rem 2rem; border-radius: 5px; font-weight: 700; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 200ms;
+}
+.cta-button:hover { background-color: var(--color-accent-hover); transform: translateY(-2px); }
+.photo-area {
+    width: 12rem; height: 12rem; border-radius: 50%; overflow: hidden;
+    border: 5px solid var(--color-accent-gold); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+.my-photo { width: 100%; height: 100%; object-fit: cover; }
+
+
+/* --- 3. About Me Section - PERFECT ALIGNMENT --- */
+.about-section-content {
+    background-color: var(--color-background-primary);
+    padding: 6rem 0; 
+}
+.about-text-wrapper {
+    /* Controls width and centers the entire block */
+    max-width: 50rem; 
+    margin: 0 auto; 
+    text-align: center; 
+    font-size: 1.15rem;
+}
+.about-text-wrapper p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem; 
+}
+.about-text-wrapper strong {
+    color: var(--color-accent-gold);
+    font-weight: 700;
+}
+
+
+/* --- 6. Contact Section - PERFECT ALIGNMENT --- */
+.contact-section-content {
+    background-color: var(--color-background-secondary); 
+    padding: 6rem 0;
+}
+/* Re-centered subtitle */
+.section-subtitle {
+    margin-bottom: 3rem;
+}
+/* Short Contact Info Alignment */
+.short-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items on mobile */
+    gap: 2.5rem; 
+    margin: 0 auto;
+    max-width: 30rem; 
+    padding: 2rem 0;
+}
+.contact-item { text-align: center; }
+.contact-label {
+    font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;
+}
+.contact-value {
+    font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700;
+}
+.email-link, .phone-link {
+    color: var(--color-accent-gold); transition: color 200ms;
+}
+.email-link:hover, .phone-link:hover {
+    color: var(--color-accent-hover);
+}
+
+
+/* --- 7. Footer --- */
+.footer {
+    background-color: #F0F0F0; color: #6c757d; padding: 1.5rem 0; text-align: center; font-size: 0.9rem;
+}
+
+
+/* --- Media Query for Desktop --- */
+@media (min-width: 768px) {
+    .desktop-menu { display: flex; }
+    .menu-button { display: none; }
+    .hero-section { padding: 8rem 0; }
+    .hero-content {
+        flex-direction: row; text-align: left; justify-content: space-between;
+    }
+    .hero-text { order: 1; max-width: 50%; }
+    .photo-area { order: 2; width: 15rem; height: 15rem; }
+
+    /* Desktop Contact Alignment */
+    .short-contact-info {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 3rem 0;
+        gap: 0;
+    }
+}
