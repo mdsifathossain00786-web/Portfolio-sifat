@@ -1,7 +1,10 @@
 /*
   Base Styles, Variables, and Color Grading
   Palette: Soft Navy, Cream/Off-White, Elegant Gold/Saffron
-*/
+*/ 
+
+
+
 :root {
     --color-background-primary: #F8F8F8; /* Light Cream/Off-White */
     --color-background-secondary: #FFFFFF; /* Pure White for contrast/cards */
@@ -49,25 +52,95 @@ a { text-decoration: none; color: inherit; }
     text-align: center;
 }
 
-/* --- 1. Header and Navigation --- */
+
+
 .header {
-    position: sticky; top: 0; z-index: 50;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: var(--color-background-secondary);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(12px); /* Glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
+
 .nav-container {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
+
 .logo {
-    font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--color-text-dark);
+    text-decoration: none;
+    letter-spacing: -0.5px;
 }
-.desktop-menu { display: none; align-items: center; gap: 1.5rem; }
-.nav-link { font-weight: 500; padding: 0.5rem 0; transition: color 200ms; border-bottom: 2px solid transparent;}
-.nav-link:hover { color: var(--color-accent-gold); border-color: var(--color-accent-gold); }
-.menu-button { background: none; border: none; cursor: pointer; color: var(--color-text-dark); }
-.icon { height: 1.5rem; width: 1.5rem; }
+
+.logo span {
+    color: var(--color-accent-gold); /* Logo-r ekta part gold korar jonno */
+}
+
+.desktop-menu {
+    display: flex; /* Menu show korar jonno desktop-e flex kora hoyeche */
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Modern Underline Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-accent-gold);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.menu-button {
+    display: none; /* Desktop-e button dorkar nei */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Tablet & Mobile Responsive */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none; /* Mobile-e menu hide thakbe */
+    }
+    .menu-button {
+        display: block;
+    }
+}
 
 
 /* --- 2. Hero Section --- */
@@ -98,59 +171,71 @@ a { text-decoration: none; color: inherit; }
 
 
 /* --- 3. About Me Section - PERFECT ALIGNMENT --- */
+/* Section Styles */
 .about-section-content {
-    background-color: var(--color-background-primary);
-    padding: 6rem 0; 
-}
-.about-text-wrapper {
-    /* Controls width and centers the entire block */
-    max-width: 50rem; 
-    margin: 0 auto; 
-    text-align: center; 
-    font-size: 1.15rem;
-}
-.about-text-wrapper p {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* Light subtle background */
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.8;
-    margin-bottom: 1.5rem; 
-}
-.about-text-wrapper strong {
-    color: var(--color-accent-gold);
-    font-weight: 700;
 }
 
-
-/* --- 6. Contact Section - PERFECT ALIGNMENT --- */
-.contact-section-content {
-    background-color: var(--color-background-secondary); 
-    padding: 6rem 0;
-}
-/* Re-centered subtitle */
-.section-subtitle {
-    margin-bottom: 3rem;
-}
-/* Short Contact Info Alignment */
-.short-contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items on mobile */
-    gap: 2.5rem; 
+.container {
+    max-width: 900px;
     margin: 0 auto;
-    max-width: 30rem; 
-    padding: 2rem 0;
+    padding: 0 20px;
 }
-.contact-item { text-align: center; }
-.contact-label {
-    font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;
+
+/* Title Design */
+.section-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
 }
-.contact-value {
-    font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700;
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50px;
+    height: 4px;
+    background-color: #3498db; /* Blue accent color */
+    border-radius: 2px;
 }
-.email-link, .phone-link {
-    color: var(--color-accent-gold); transition: color 200ms;
+
+/* Text Wrapper */
+.about-text-wrapper {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    border-left: 5px solid #3498db;
 }
-.email-link:hover, .phone-link:hover {
-    color: var(--color-accent-hover);
+
+.about-text-wrapper p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
 }
+
+.about-text-wrapper strong {
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .about-text-wrapper {
+        padding: 25px;
+    }
+}
+
+
 
 
 /* --- 7. Footer --- */
@@ -176,5 +261,304 @@ a { text-decoration: none; color: inherit; }
         justify-content: space-around;
         padding: 3rem 0;
         gap: 0;
+    }
+}
+
+
+
+
+/* Skill Section Base */
+.skill-section {
+    padding: 80px 0;
+    background-color: #f8fafc;
+    text-align: center;
+}
+
+.skill-description {
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Grid Layout */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+/* Individual Skill Card */
+.skill-card {
+    background: #ffffff;
+    padding: 40px 25px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image & Icon Styling */
+.skill-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Jodi font-awesome icon use koren tar styling */
+.skill-card i {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #3498db;
+    display: none; /* Image thakle icon hide rakhtei bhalo dekhay, nile image-er niche thakbe */
+}
+
+.skill-card h3 {
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Hover Effects */
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: #3498db;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.skill-card:hover img {
+    transform: scale(1.15); /* Chobi ektu boro hobe */
+}
+
+/* Decorative Background element on hover */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+/* Section Title Accent */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 100px 0;
+    background-color: #f4f7f6; /* Subtle grey-blue background */
+    text-align:  center;
+}
+
+.portfolio-intro {
+    max-width: 800px;
+    margin: 20px auto 60px auto;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.portfolio-intro strong {
+    color: #3498db;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 20px;
+}
+
+/* Project Card */
+.portfolio-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Image Container & Overlay */
+.project-image {
+    position: relative;
+    height: 200px;
+    background: #ddd; /* Placeholder color */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 152, 219, 0.9); /* Blue transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 25px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.view-btn:hover {
+    background: #fff;
+    color: #3498db;
+}
+
+/* Project Info */
+.project-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #2c3e50;
+}
+
+.project-info p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+/* Contact Section Styles */
+.contact-section-content {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Subtle gradient background */
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+/* Contact Info Wrapper */
+.short-contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Mobile friendly */
+}
+
+/* Individual Contact Item Card */
+.contact-item {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    padding: 30px;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.15);
+}
+
+.contact-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.contact-value a {
+    font-size: 1.15rem;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-value a:hover {
+    color: #3498db;
+}
+
+/* Section Title Accent (Same as before for consistency) */
+.section-title {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contact-item {
+        width: 100%;
+        margin: 0 20px;
     }
 }
